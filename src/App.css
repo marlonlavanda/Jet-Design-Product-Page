@@ -1,38 +1,24 @@
-.App {
-  text-align: center;
+@font-face {
+  font-family: 'Rota';
+  src: local('Rota'), url('./fonts/Rota-Regular.otf') format('opentype');
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+@font-face {
+  font-family: 'Rota';
+  font-weight: 500;
+  src: local('Rota'), url('./fonts/Rota-SemiBold.otf') format('opentype');
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+@font-face {
+  font-family: 'Rota';
+  font-weight: bold;
+  src: local('Rota'), url('./fonts/Rota-Bold.otf') format('opentype');
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+@font-face {
+  font-family: 'Rota';
+  font-style: italic;
+  src: local('Rota'), url('./fonts/Rota-Italic.otf') format('opentype');
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+@font-face {
+  font-family: 'Ravioli';
+  src: local('Ravioli Serif Font'),
+    url('./fonts/Ravioli\ Serif\ Font.otf') format('opentype');
 }
