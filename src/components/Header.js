@@ -1,45 +1,32 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
+import { User } from '@styled-icons/boxicons-regular/User'
+import { ShoppingBag } from '@styled-icons/material-outlined/ShoppingBag';
 import Logo from '../assets/nutrify-logo.svg';
 
 function Header() {
-  const [ burgerStatus, setBurgerStatus ] = useState(false);
-  const cars = ["Model S", "Model 3", "Model X", "Model Y"]
+  const links = ["SHOP", "WHY REFIL", "WHY NUTRIFY"]
 
   return (
     <Container>
-      <Menu>
-        { cars && cars.map((car, index) => (
-            <a key={index} href="#ad">{car} </a>
-          ))
-        }
-      </Menu>
-      <a href="#dsf">
-        <img src={Logo} alt="Tesla logo" />
-      </a>
-      <RightMenu>
-        <a href="#as">Shop</a>
-        <a href="#as">Tesla Account</a>
-        <CustomMenu onClick={ () => setBurgerStatus(true) } />
-      </RightMenu>
-      <BurgerNav show={burgerStatus}>
-        <CloseWrapper>
-          <CustomClose onClick={ () => setBurgerStatus(false) } >
-            X
-          </CustomClose>
-        </CloseWrapper>
-        { cars && cars.map((car, index) => (
-          <li key={index} >
-            <a href="#ad">{car}</a>
-          </li>
-          ))
-        }
-        <li><a href="#asd">Existing Inventory</a></li>
-        <li><a href="#asd">Used Inventory</a></li>
-        <li><a href="#asd">Trade-in</a></li>
-        <li><a href="#asd">Cybertruck</a></li>
-        <li><a href="#asd">Roadster</a></li>
-      </BurgerNav>
+      <Nav>
+        <Menu>
+          { links && links.map((link, index) => (
+              <a key={index} href="#ad">{link} </a>
+            ))
+          }
+        </Menu>
+        <LogoContainer>
+          <img src={Logo} alt="Nutrify logo" />
+        </LogoContainer>
+        <RightMenu>
+          <LeftButton>
+              start consultation
+          </LeftButton>
+          <UserIcon></UserIcon>
+          <Bag />
+        </RightMenu>
+      </Nav>
     </Container>
   )
 }
@@ -47,22 +34,35 @@ function Header() {
 export default Header
 
 const Container = styled.div`
-  min-height: 176px;
-  position: fixed;
+  width: 100vw;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 20px;
+  min-height: 176px;
+  flex: 1;
+  justify-content: center;
+  position: fixed;
   top: 70px;
   left: 0;
   right: 0;
-  z-index: 1;
+  `
+const Nav = styled.div`
+  display: flex;
+  align-items: center;
+  width: 1200px;
+  padding: 0 20px;
   a {
     font-weight: 600;
     text-transform: uppercase;
-    font-family: 'Rota';
+    color: #333333;
   }
 `
+
+const LogoContainer = styled.div`
+  width: 230px;
+  img {
+    width: inherit;
+  }
+`
+
 const Menu = styled.div`
   display: flex;
   flex: 1;
@@ -71,60 +71,47 @@ const Menu = styled.div`
 
   a {
     font-weight: 600;
-    text-transform: uppercase;
+    text-decoration: none;
     padding: 0 10px;
     flex-wrap: nowrap;
-    font-family: 'Rota';
+    letter-spacing: 2.2px;
   }
 
   @media(max-width: 768px){
     display: none;
   }
 `
+
 const RightMenu = styled.div`
   display: flex;
+  flex: 1;
   align-items: center;
-  a {
-    font-weight: 600;
-    text-transform: uppercase;
-    margin-right: 10px;
-  }
+  justify-content: center;
 `
-
-
-const BurgerNav = styled.div`
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  background-color: white;
-  width: 300px;
-  z-index: 16;
-  list-style: none;
-  padding: 20px;
+const LeftButton = styled.div`
+  background-color: #F6F6F2;
+  height: 40px;
+  width: 256px;
+  color: #000;
   display: flex;
-  flex-direction: column;
-  text-align: start;
-  transform: ${ props => props.show ? 'translateX(0)' : 'translateX(100%)' };
-  transition: transform 0.2s ;
-  li {
-    padding: 15px 0;
-    border-bottom: 1px solid rgba(0, 0, 0, .2);
-
-    a {
-      font-weight: 600;
-    }
-  }
-
+  justify-content: center;
+  align-items: center;
+  border-radius: 100px;
+  text-transform: uppercase;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 2.2px;
+  margin: 8px;
+  margin-right: 32px;
 `
-const CloseWrapper = styled.div`
-  display: flex;
-  justify-content: flex-end;
-`
-const CustomClose = styled.button`
+const UserIcon = styled(User)`
+  color: #333;
+  width: 24px;
+  margin-right: 16px;
   cursor: pointer;
 `
-
-const CustomMenu = styled(CustomClose)`
+const Bag = styled(ShoppingBag)`
+  color: #333;
+  height: 24px;
   cursor: pointer;
 `

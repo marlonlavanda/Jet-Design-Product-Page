@@ -22,3 +22,8 @@
   src: local('Ravioli Serif Font'),
     url('./fonts/Ravioli\ Serif\ Font.otf') format('opentype');
 }
+
+body {
+  font-family: 'Rota';
+
+}
