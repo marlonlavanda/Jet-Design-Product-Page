@@ -36,10 +36,8 @@ export default Header
 const Container = styled.div`
   width: 100vw;
   display: flex;
-  min-height: 176px;
-  flex: 1;
+  height: 176px;
   justify-content: center;
-  position: fixed;
   top: 70px;
   left: 0;
   right: 0;
@@ -75,10 +73,6 @@ const Menu = styled.div`
     padding: 0 10px;
     flex-wrap: nowrap;
     letter-spacing: 2.2px;
-  }
-
-  @media(max-width: 768px){
-    display: none;
   }
 `
 

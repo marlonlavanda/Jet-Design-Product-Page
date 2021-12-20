@@ -21,7 +21,6 @@ export default TopBar
 
 const Container= styled.div`
   min-height: 70px;
-  position: fixed;
   display: flex;
   align-items: center;
   justify-content: center;
